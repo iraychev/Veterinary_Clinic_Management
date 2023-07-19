@@ -12,8 +12,7 @@ public class LoadDatabase {
 
     @Bean
     CommandLineRunner initDatabase(DoctorRepository doctorRepository, PatientRepository patientRepository,
-                                   InventoryItemRepository inventoryItemRepository, AppointmentRepository appointmentRepository,
-                                   InvoiceRepository invoiceRepository, FinancialRecordRepository financialRecordRepository) {
+                                   ProductRepository productRepository) {
 
         return args -> {
             // Preload data for DoctorRepository
@@ -28,11 +27,11 @@ public class LoadDatabase {
             patientRepository.save(new Patient("Max", "Dog", "Labrador Retriever", LocalDate.of(2017, 8, 20), "Sarah Johnson", "555-9876", "No major medical issues", "None", "Rabies, DHPP"));
             patientRepository.save(new Patient("Whiskers", "Cat", "Siamese", LocalDate.of(2020, 02, 12), "Michael Davis", "555-4321", "Asthma", "Fish", "Rabies, FVRCP"));
 
-            // Preload data for InventoryItemRepository
-            inventoryItemRepository.save(new InventoryItem("Medicine A", "For pain relief", 50, 10));
-            inventoryItemRepository.save(new InventoryItem("Medicine B", "Antibiotic", 30, 5));
-            inventoryItemRepository.save(new InventoryItem("Medicine C", "Antifungal", 20, 5));
-            inventoryItemRepository.save(new InventoryItem("Medicine D", "Anti-inflammatory", 15, 3));
+            // Preload data for ProductRepository
+            productRepository.save(new Product("Medicine A", "For pain relief", 50, 10));
+            productRepository.save(new Product("Medicine B", "Antibiotic", 30, 5));
+            productRepository.save(new Product("Medicine C", "Antifungal", 20, 5));
+            productRepository.save(new Product("Medicine D", "Anti-inflammatory", 15, 3));
         };
     }
 }
