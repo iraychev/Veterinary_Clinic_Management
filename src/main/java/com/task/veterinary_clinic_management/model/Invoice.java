@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "invoices")
+@Table(name = "invoice")
 public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,8 +27,8 @@ public class Invoice {
     private LocalDate paymentDate;
 
     @ManyToOne
-    @JoinColumn(name = "inventory_item_id")
-    private InventoryItem inventoryItem;
+    @JoinColumn(name = "product_id")
+    private Product product;
 
     @OneToMany(mappedBy = "invoice")
     private List<FinancialRecord> financialRecords;
@@ -37,12 +37,12 @@ public class Invoice {
     }
 
     public Invoice(Appointment appointment, double amount, Boolean paid,
-                   LocalDate paymentDate, InventoryItem inventoryItem, List<FinancialRecord> financialRecords) {
+                   LocalDate paymentDate, Product product, List<FinancialRecord> financialRecords) {
         this.appointment = appointment;
         this.amount = amount;
         this.paid = paid;
         this.paymentDate = paymentDate;
-        this.inventoryItem = inventoryItem;
+        this.product = product;
         this.financialRecords = financialRecords;
     }
 
@@ -86,12 +86,12 @@ public class Invoice {
         this.paymentDate = paymentDate;
     }
 
-    public InventoryItem getInventoryItem() {
-        return inventoryItem;
+    public Product getInventoryItem() {
+        return product;
     }
 
-    public void setInventoryItem(InventoryItem inventoryItem) {
-        this.inventoryItem = inventoryItem;
+    public void setInventoryItem(Product product) {
+        this.product = product;
     }
 
     public List<FinancialRecord> getFinancialRecords() {
@@ -107,12 +107,12 @@ public class Invoice {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Invoice invoice = (Invoice) o;
-        return id == invoice.id && Double.compare(invoice.amount, amount) == 0 && Objects.equals(appointment, invoice.appointment) && Objects.equals(paid, invoice.paid) && Objects.equals(paymentDate, invoice.paymentDate) && Objects.equals(inventoryItem, invoice.inventoryItem) && Objects.equals(financialRecords, invoice.financialRecords);
+        return id == invoice.id && Double.compare(invoice.amount, amount) == 0 && Objects.equals(appointment, invoice.appointment) && Objects.equals(paid, invoice.paid) && Objects.equals(paymentDate, invoice.paymentDate) && Objects.equals(product, invoice.product) && Objects.equals(financialRecords, invoice.financialRecords);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, appointment, amount, paid, paymentDate, inventoryItem, financialRecords);
+        return Objects.hash(id, appointment, amount, paid, paymentDate, product, financialRecords);
     }
 
     @Override
@@ -123,7 +123,7 @@ public class Invoice {
                 ", amount=" + amount +
                 ", paid=" + paid +
                 ", paymentDate=" + paymentDate +
-                ", inventoryItem=" + inventoryItem +
+                ", inventoryItem=" + product +
                 ", financialRecords=" + financialRecords +
                 '}';
     }

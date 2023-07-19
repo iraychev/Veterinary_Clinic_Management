@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "financial_records")
+@Table(name = "financial_record")
 public class FinancialRecord {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
