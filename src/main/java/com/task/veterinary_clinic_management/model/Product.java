@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "inventory_items")
-public class InventoryItem {
+@Table(name = "product")
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -23,9 +23,9 @@ public class InventoryItem {
     @Column(name = "reorder_point")
     private int reorderPoint;
 
-    public InventoryItem() { }
+    public Product() { }
 
-    public InventoryItem(String name, String description, int quantity, int reorderPoint) {
+    public Product(String name, String description, int quantity, int reorderPoint) {
         this.name = name;
         this.description = description;
         this.quantity = quantity;
@@ -76,7 +76,7 @@ public class InventoryItem {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        InventoryItem that = (InventoryItem) o;
+        Product that = (Product) o;
         return id == that.id && quantity == that.quantity && reorderPoint == that.reorderPoint && Objects.equals(name, that.name) && Objects.equals(description, that.description);
     }
 
@@ -87,7 +87,7 @@ public class InventoryItem {
 
     @Override
     public String toString() {
-        return "InventoryItem{" +
+        return "Product{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
