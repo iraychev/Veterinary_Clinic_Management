@@ -86,11 +86,11 @@ public class Invoice {
         this.paymentDate = paymentDate;
     }
 
-    public Product getInventoryItem() {
+    public Product getProduct() {
         return product;
     }
 
-    public void setInventoryItem(Product product) {
+    public void setProduct(Product product) {
         this.product = product;
     }
 
