@@ -1,8 +1,10 @@
 package com.task.veterinary_clinic_management.controller;
 
 import com.task.veterinary_clinic_management.model.FinancialRecord;
+import com.task.veterinary_clinic_management.model.Invoice;
 import com.task.veterinary_clinic_management.service.FinancialRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,17 +21,21 @@ public class FinancialRecordController {
     }
 
     @GetMapping
-    public List<FinancialRecord> getAllFinancialRecords() {
-        return financialRecordService.getAllFinancialRecords();
+    public String getAllFinancialRecords(Model model) {
+        List<FinancialRecord> financialRecords = financialRecordService.getAllFinancialRecords();
+        model.addAttribute("allFinancialRecords", financialRecords);
+        return "allFinancialRecords";
     }
 
     @GetMapping("/{id}")
-    public FinancialRecord getFinancialRecordById(@PathVariable Long id) {
-        return financialRecordService.getFinancialRecordById(id);
+    public String getFinancialRecordById(@PathVariable Long id, Model model) {
+        FinancialRecord financialRecord = financialRecordService.getFinancialRecordById(id);
+        model.addAttribute("financialRecord", financialRecord);
+        return "FinancialRecord";
     }
 
     @PostMapping
-    public FinancialRecord addFinancialRecord(@RequestBody FinancialRecord financialRecord) {
+    public FinancialRecord addFinancialRecord(@ModelAttribute FinancialRecord financialRecord) {
         return financialRecordService.addFinancialRecord(financialRecord);
     }
 

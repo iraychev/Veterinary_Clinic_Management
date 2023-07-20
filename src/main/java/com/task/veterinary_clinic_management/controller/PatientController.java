@@ -1,9 +1,14 @@
 package com.task.veterinary_clinic_management.controller;
 
+
+import com.task.veterinary_clinic_management.model.Doctor;
 import com.task.veterinary_clinic_management.model.Patient;
 import com.task.veterinary_clinic_management.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/patients")
@@ -16,12 +21,21 @@ public class PatientController {
     }
 
     @GetMapping("/{id}")
-    public Patient getPatientById(@PathVariable Long id) {
-        return patientService.getPatientById(id);
+    public String getPatientById(@PathVariable Long id, Model model) {
+        Patient patient = patientService.getPatientById(id);
+        model.addAttribute("patient", patient);
+        return "Patient";
+    }
+    @GetMapping
+    public String getAllPatient(Model model) {
+        List<Patient> patients = patientService.getAllPatient();
+        model.addAttribute("patients", patients);
+        return "Patients";
     }
 
+
     @PostMapping
-    public void createPatient(@RequestBody Patient patient) {
+    public void createPatient(@ModelAttribute Patient patient) {
         patientService.createPatient(patient);
     }
 
