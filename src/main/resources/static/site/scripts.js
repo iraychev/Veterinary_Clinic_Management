@@ -1,6 +1,6 @@
 // Function to fetch and display the JSON data
 function fetchAndDisplayJson() {
-    fetch('/products') // Replace '/api/data' with the actual URL of your backend endpoint that serves the JSON data
+    fetch('/patients') // Replace '/api/data' with the actual URL of your backend endpoint that serves the JSON data
         .then(response => response.json())
         .then(data => displayJsonData(data))
         .catch(error => console.error('Error fetching JSON:', error));

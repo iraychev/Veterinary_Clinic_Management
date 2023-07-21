@@ -15,7 +15,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
-
     private final ProductService productService;
 
     @Autowired
@@ -24,31 +23,14 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ProductDTO>> getAllProducts() {
-        List<Product> products = productService.getAllProducts();
-        List<ProductDTO> productDTOs = new ArrayList<>();
-        for (Product product : products) {
-            ProductDTO productDTO = new ProductDTO();
-            productDTO.setId(product.getId());
-            productDTO.setName(product.getName());
-            productDTO.setDescription(product.getDescription());
-            productDTO.setQuantity(product.getQuantity());
-            productDTO.setReorderPoint(product.getReorderPoint());
-            productDTOs.add(productDTO);
-        }
-        return ResponseEntity.ok(productDTOs);
+    public List<ProductDTO> getAllProducts() {
+        return productService.getAllProducts();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ProductDTO> getProductById(@PathVariable Long id) {
-        Product product = productService.getProductById(id);
-        if (product != null) {
-            ProductDTO productDTO = new ProductDTO();
-            productDTO.setId(product.getId());
-            productDTO.setName(product.getName());
-            productDTO.setDescription(product.getDescription());
-            productDTO.setQuantity(product.getQuantity());
-            productDTO.setReorderPoint(product.getReorderPoint());
+        ProductDTO productDTO = productService.getProductById(id);
+        if (productDTO != null) {
             return ResponseEntity.ok(productDTO);
         } else {
             return ResponseEntity.notFound().build();
@@ -56,13 +38,8 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createProduct(@RequestBody ProductDTO productDTO) {
-        Product product = new Product();
-        product.setName(productDTO.getName());
-        product.setDescription(productDTO.getDescription());
-        product.setQuantity(productDTO.getQuantity());
-        product.setReorderPoint(productDTO.getReorderPoint());
-        productService.createProduct(product);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTO productDTO) {
+        productService.createProduct(productDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(productDTO);
     }
 }
