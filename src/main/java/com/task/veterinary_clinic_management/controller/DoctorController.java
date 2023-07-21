@@ -1,16 +1,13 @@
 package com.task.veterinary_clinic_management.controller;
 
 import com.task.veterinary_clinic_management.DTO.DoctorDTO;
-import com.task.veterinary_clinic_management.model.Doctor;
 import com.task.veterinary_clinic_management.service.DoctorService;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @RestController
 @RequestMapping("/doctors")
@@ -38,8 +35,8 @@ public class DoctorController {
     }
 
     @PostMapping
-    public ResponseEntity<DoctorDTO> addDoctor(@RequestBody DoctorDTO doctorDTO) {
-        DoctorDTO savedDoctorDTO = doctorService.addDoctor(doctorDTO);
+    public ResponseEntity<DoctorDTO> createDoctor(@RequestBody DoctorDTO doctorDTO) {
+        DoctorDTO savedDoctorDTO = doctorService.createDoctor(doctorDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedDoctorDTO);
     }
 

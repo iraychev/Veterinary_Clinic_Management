@@ -33,7 +33,7 @@ public class DoctorService {
         return modelMapper.map(doctor, DoctorDTO.class);
     }
 
-    public DoctorDTO addDoctor(DoctorDTO doctorDTO) {
+    public DoctorDTO createDoctor(DoctorDTO doctorDTO) {
         Doctor doctor = modelMapper.map(doctorDTO, Doctor.class);
         Doctor savedDoctor = doctorRepository.save(doctor);
         return modelMapper.map(savedDoctor, DoctorDTO.class);

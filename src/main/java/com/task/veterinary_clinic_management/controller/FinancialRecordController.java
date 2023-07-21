@@ -1,10 +1,11 @@
 package com.task.veterinary_clinic_management.controller;
 
-import com.task.veterinary_clinic_management.model.FinancialRecord;
+import com.task.veterinary_clinic_management.DTO.FinancialRecordDTO;
 import com.task.veterinary_clinic_management.service.FinancialRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -19,22 +20,29 @@ public class FinancialRecordController {
     }
 
     @GetMapping
-    public List<FinancialRecord> getAllFinancialRecords() {
+    public List<FinancialRecordDTO> getAllFinancialRecords() {
         return financialRecordService.getAllFinancialRecords();
     }
 
     @GetMapping("/{id}")
-    public FinancialRecord getFinancialRecordById(@PathVariable Long id) {
-        return financialRecordService.getFinancialRecordById(id);
+    public ResponseEntity<FinancialRecordDTO> getFinancialRecordById(@PathVariable Long id) {
+        FinancialRecordDTO financialRecordDTO = financialRecordService.getFinancialRecordById(id);
+        if (financialRecordDTO != null) {
+            return ResponseEntity.ok(financialRecordDTO);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PostMapping
-    public FinancialRecord addFinancialRecord(@RequestBody FinancialRecord financialRecord) {
-        return financialRecordService.addFinancialRecord(financialRecord);
+    public ResponseEntity<FinancialRecordDTO> createFinancialRecord(@RequestBody FinancialRecordDTO financialRecordDTO) {
+        FinancialRecordDTO createdFinancialRecordDTO = financialRecordService.createFinancialRecord(financialRecordDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdFinancialRecordDTO);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteFinancialRecord(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteFinancialRecord(@PathVariable Long id) {
         financialRecordService.deleteFinancialRecord(id);
+        return ResponseEntity.noContent().build();
     }
 }
