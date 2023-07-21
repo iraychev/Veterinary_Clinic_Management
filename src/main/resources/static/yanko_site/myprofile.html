@@ -1,0 +1,425 @@
+<!-- Page Title-->
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+
+<head>
+    <title>Home</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+        content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css"
+        href="//fonts.googleapis.com/css?family=Lato:300i,400,400i,700%7CMontserrat:400,500,600,700%7CPlayfair+Display:400,700,700i%7COswald:400,700,700i">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/myprofile.css">
+    <style>
+        .ie-panel {
+            display: none;
+            background: #212121;
+            padding: 10px 0;
+            box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .3);
+            clear: both;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        html.ie-10 .ie-panel,
+        html.lt-ie-10 .ie-panel {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="preloader-body">
+            <div class="cssload-container">
+                <div class="cssload-speeding-wheel"></div>
+            </div>
+            <p>Loading...</p>
+        </div>
+    </div>
+    <div class="page">
+
+        <!-- Page Header-->
+        <header class="section page-header">
+            <!-- RD Navbar-->
+            <div class="rd-navbar-wrap">
+                <nav class="rd-navbar rd-navbar-classic rd-navbar-classic-minimal" data-layout="rd-navbar-fixed"
+                    data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed"
+                    data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
+                    data-lg-device-layout="rd-navbar-static" data-xl-layout="rd-navbar-static"
+                    data-xl-device-layout="rd-navbar-static" data-lg-stick-up-offset="46px"
+                    data-xl-stick-up-offset="46px" data-xxl-stick-up-offset="46px" data-lg-stick-up="true"
+                    data-xl-stick-up="true" data-xxl-stick-up="true">
+                    <div class="rd-navbar-main-outer">
+                        <div class="rd-navbar-main">
+                            <!-- RD Navbar Panel-->
+                            <div class="rd-navbar-panel">
+                                <!-- RD Navbar Toggle-->
+                                <button class="rd-navbar-toggle"
+                                    data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                                <!-- RD Navbar Brand-->
+                                <div class="rd-navbar-brand">
+                                    <!--Brand--><a class="brand" href="index.html"><img class="brand-logo-dark"
+                                            src="images/logo-default-392x116.png" alt="" width="196" height="58" /><img
+                                            class="brand-logo-light" src="images/logo-default-392x116.png" alt=""
+                                            width="196" height="58" /></a>
+                                </div>
+                            </div>
+                            <div class="rd-navbar-main-element">
+                                <div class="rd-navbar-nav-wrap">
+                                    <!-- RD Navbar Nav-->
+                                    <ul class="rd-navbar-nav">
+                                        <li class="rd-nav-item active"><a class="rd-nav-link" href="index.html">Home</a>
+                                        </li>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="about.html">About</a>
+                                        </li>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="contacts.html">Contacts</a>
+                                        </li>
+                                        <li class="rd-nav-item"><a class="button button-default-outline"
+                                                href="login.html" data-caption-animate="fadeInUp"
+                                                data-caption-delay="450">My Profile</a>
+
+                                        </li>
+                                    </ul>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Base typography -->
+        <section class="py-5 my-5">
+            <div class="container">
+                <h1 class="mb-5">Guest | Account Settings</h1>
+                <div class="bg-white shadow rounded-lg d-block d-sm-flex">
+                    <div class="profile-tab-nav border-right">
+                        <div class="p-4">
+                            <div class="img-circle text-center mb-3">
+                                <img src="images/profile-picture.png" alt="Image" class="shadow">
+                            </div>
+                        </div>
+                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                            aria-orientation="vertical">
+                            <a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab"
+                                aria-controls="account" aria-selected="true">
+                                <i class="fa fa-home text-center mr-1"></i>
+                                Account
+                            </a>
+
+                            <a class="nav-link" id="appo-tab" data-toggle="pill" href="#appo" role="tab"
+                                aria-controls="appo" aria-selected="false">
+                                <i class="fa fa-user text-center mr-1"></i>
+                                Book an Appointment
+                            </a>
+                            <a class="nav-link" id="inventory-tab" data-toggle="pill" href="#inventory" role="tab"
+                                aria-controls="inventory" aria-selected="false">
+                                <i class="fa fa-tv text-center mr-1"></i>
+                                Inventory
+                            </a>
+                            <a class="nav-link" id="notification-tab" data-toggle="pill" href="#notification" role="tab"
+                                aria-controls="notification" aria-selected="false">
+                                <i class="fa fa-bell text-center mr-1"></i>
+                                Notification
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="account" role="tabpanel"
+                            aria-labelledby="account-tab">
+                            <h3 class="mb-4">Account Settings</h3>
+                            <div>
+                                <p>If you don't want to input your data every time you need to book an Appointment,
+                                    please <a href="signup.html"><strong>sign up</strong></a>.</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Your Name</label>
+                                        <input type="text" class="form-control" value="" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Pet Name</label>
+                                        <input type="text" class="form-control" value="" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Species</label>
+                                        <input type="text" class="form-control" value="" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Breed </label>
+                                        <input type="text" class="form-control" value="" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Alergies</label>
+                                        <input type="text" class="form-control" value="" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Phone number</label>
+                                        <input type="text" class="form-control" value="" disabled>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div>
+                                <button class="button button-default-outline" disabled>Save</button>
+                                <button class="btn button-white" disabled>Cancel</button>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="appo" role="tabpanel" aria-labelledby="appo-tab">
+                            <h3 class="mb-4">Book an Appointments</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Your Name</label>
+                                        <input type="text" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Pet Name</label>
+                                        <input type="text" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Species</label>
+                                        <input type="text" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Breed </label>
+                                        <input type="text" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Alergies</label>
+                                        <input type="text" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Phone number</label>
+                                        <input type="text" class="form-control" value="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Date of the Appointment</label>
+                                        <input type="date" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <form onsubmit="return false;">
+                                        <div class="form-group calendar-menu">
+                                            <label class="calendar-menu-label">Select Hours (9 AM to 5 PM)</label>
+                                            <select class="form-control">
+                                                <option value="09:00">9:00 AM</option>
+                                                <option value="10:00">10:00 AM</option>
+                                                <option value="11:00">11:00 AM</option>
+                                                <option value="12:00">12:00 PM</option>
+                                                <option value="13:00">1:00 PM</option>
+                                                <option value="14:00">2:00 PM</option>
+                                                <option value="15:00">3:00 PM</option>
+                                                <option value="16:00">4:00 PM</option>
+                                                <option value="17:00">5:00 PM</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Additional Information</label>
+                                        <textarea class="form-control" rows="5"></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div>
+                                <button class="button button-default-outline">Book</button>
+                                <button class="btn button-white">Cancel</button>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="inventory" role="tabpanel" aria-labelledby="inventory-tab">
+                            <h3 class="mb-4"> Inventory </h3>
+                            <<div class="inventory-list">
+                                <div class="inventory-item">
+                                    <h4>Item 1</h4>
+                                    <div class="form-group">
+                                        <label>Category:</label>
+                                        <input type="text" class="form-control" value="Category 1" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Quantity:</label>
+                                        <input type="text" class="form-control" value="10" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Price:</label>
+                                        <input type="text" class="form-control" value="$100" disabled>
+                                    </div>
+                                    <div class="inventory-buttons">
+                                        <button class="button button-default-outline"
+                                            onclick="enableEditing(this)">Edit</button>
+                                        <button class="btn button-white" onclick="saveChanges(this.parentNode)"
+                                            disabled>Save</button>
+                                        <button class="btn button-white" onclick="deleteItem(this)"
+                                            disabled>Delete</button>
+                                    </div>
+                                </div>
+
+                                <div class="inventory-item">
+                                    <h4>Item 2</h4>
+                                    <div class="form-group">
+                                        <label>Category:</label>
+                                        <input type="text" class="form-control" value="Category 2" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Quantity:</label>
+                                        <input type="text" class="form-control" value="5" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Price:</label>
+                                        <input type="text" class="form-control" value="$50" disabled>
+                                    </div>
+                                    <div class="inventory-buttons">
+                                        <button class="button button-default-outline"
+                                            onclick="enableEditing(this)">Edit</button>
+
+                                        <button class="btn button-white" onclick="saveChanges(this.parentNode)"
+                                            disabled>Save</button>
+                                        <button class="btn button-white" onclick="deleteItem(this)"
+                                            disabled>Delete</button>
+                                    </div>
+                                </div>
+
+                                <h4>Item 1</h4>
+                                <div class="form-group">
+                                    <label>Category:</label>
+                                    <input type="text" class="form-control" value="Category 1" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label>Quantity:</label>
+                                    <input type="text" class="form-control" value="10" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label>Price:</label>
+                                    <input type="text" class="form-control" value="$100" disabled>
+                                </div>
+                                <div class="inventory-buttons">
+                                    <button class="button button-default-outline"
+                                        onclick="enableEditing(this)">Edit</button>
+                                    <button class="btn button-white" onclick="saveChanges(this.parentNode)"
+                                        disabled>Save</button>
+                                    <button class="btn button-white" onclick="deleteItem(this)" disabled>Delete</button>
+                                </div>
+                        </div>
+
+                        <div class="inventory-item">
+                            <h4>Item 2</h4>
+                            <div class="form-group">
+                                <label>Category:</label>
+                                <input type="text" class="form-control" value="Category 2" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Quantity:</label>
+                                <input type="text" class="form-control" value="5" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Price:</label>
+                                <input type="text" class="form-control" value="$50" disabled>
+                            </div>
+                            <div class="inventory-buttons">
+                                <button class="button button-default-outline"
+                                    onclick="enableEditing(this)">Edit</button>
+
+                                <button class="btn button-white" onclick="saveChanges(this.parentNode)"
+                                    disabled>Save</button>
+                                <button class="btn button-white" onclick="deleteItem(this)" disabled>Delete</button>
+                            </div>
+                            <!-- Add more inventory items here -->
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
+                        <h3 class="mb-4">Notification </h3>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="notification1">
+                                <label class="form-check-label" for="notification1">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
+                                    accusantium
+                                    accusamus, neque cupiditate quis
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="notification2">
+                                <label class="form-check-label" for="notification2">
+                                    hic nesciunt repellat perferendis voluptatum totam porro eligendi.
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="notification3">
+                                <label class="form-check-label" for="notification3">
+                                    commodi fugiat molestiae tempora corporis. Sed dignissimos suscipit
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="button button-default-outline">Save</button>
+                            <button class="btn button-white">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </section>
+    <section class="bg-gray-100 section-xs text-center">
+
+    </section>
+    </div>
+    <section class="bg-gray-100 section-xs text-center">
+        <div class="container">
+            <p class="rights"><span>&copy;&nbsp; </span><span class="copyright-year"></span><span>&nbsp;</span>Project
+                by
+                Yanko Yankov, Ivaylo Raychev, Novena Koynarcheva, Georgi Jelyazkov, Maya Inkova</a></p>
+        </div>
+    </section>
+    </div>
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/inventory.js"></script>
+</body>
+
+</html>
