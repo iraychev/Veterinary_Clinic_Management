@@ -12,7 +12,7 @@ import java.util.Objects;
 public class FinancialRecord {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "invoice_id")
@@ -36,11 +36,11 @@ public class FinancialRecord {
         this.amount = amount;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
