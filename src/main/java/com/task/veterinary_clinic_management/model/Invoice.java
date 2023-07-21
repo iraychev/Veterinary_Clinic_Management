@@ -11,7 +11,7 @@ import java.util.Objects;
 public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "appointment_id")
@@ -46,11 +46,11 @@ public class Invoice {
         this.financialRecords = financialRecords;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -107,7 +107,7 @@ public class Invoice {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Invoice invoice = (Invoice) o;
-        return id == invoice.id && Double.compare(invoice.amount, amount) == 0 && Objects.equals(appointment, invoice.appointment) && Objects.equals(paid, invoice.paid) && Objects.equals(paymentDate, invoice.paymentDate) && Objects.equals(product, invoice.product) && Objects.equals(financialRecords, invoice.financialRecords);
+        return Objects.equals(id, invoice.id) && Double.compare(invoice.amount, amount) == 0 && Objects.equals(appointment, invoice.appointment) && Objects.equals(paid, invoice.paid) && Objects.equals(paymentDate, invoice.paymentDate) && Objects.equals(product, invoice.product) && Objects.equals(financialRecords, invoice.financialRecords);
     }
 
     @Override

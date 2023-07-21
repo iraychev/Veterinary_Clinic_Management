@@ -84,3 +84,42 @@ body {
     border-radius: 100%;
     border: 5px solid #fff;
 }
+
+.inventory-list {
+    margin-top: 20px;
+}
+
+.inventory-item {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.inventory-item h4 {
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.inventory-item p {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Style for the buttons */
+.inventory-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inventory-buttons button {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.inventory-buttons button:last-child {
+    margin-right: 0;
+}

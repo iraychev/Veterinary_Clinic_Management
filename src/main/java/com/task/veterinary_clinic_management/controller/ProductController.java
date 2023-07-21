@@ -1,17 +1,20 @@
 package com.task.veterinary_clinic_management.controller;
 
 
+import com.task.veterinary_clinic_management.DTO.ProductDTO;
 import com.task.veterinary_clinic_management.model.Product;
 import com.task.veterinary_clinic_management.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/products")
 public class ProductController {
-
     private final ProductService productService;
 
     @Autowired
@@ -20,17 +23,23 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<Product> getAllProducts() {
+    public List<ProductDTO> getAllProducts() {
         return productService.getAllProducts();
     }
 
     @GetMapping("/{id}")
-    public Product getProductById(@PathVariable Long id) {
-        return productService.getProductById(id);
+    public ResponseEntity<ProductDTO> getProductById(@PathVariable Long id) {
+        ProductDTO productDTO = productService.getProductById(id);
+        if (productDTO != null) {
+            return ResponseEntity.ok(productDTO);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PostMapping
-    public void createProduct(@RequestBody Product product) {
-        productService.createProduct(product);
+    public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTO productDTO) {
+        productService.createProduct(productDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(productDTO);
     }
 }
