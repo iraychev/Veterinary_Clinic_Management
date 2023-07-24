@@ -123,3 +123,61 @@ body {
 .inventory-buttons button:last-child {
     margin-right: 0;
 }
+
+
+.nav-pills a.nav-link.active {
+    color: #fff;
+
+}
+
+.nav-pills a.nav-link.active,
+.nav-pills a.nav-link.active:hover {
+    background-color: #78be1f;
+
+}
+
+
+.nav-pills .nav-link.active::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #78be1f;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.nav-pills a.nav-link:not(.active):hover {
+    background-color: #f5f5f5;
+
+}
+
+.nav-pills a.nav-link {
+    padding: 15px 20px;
+    border-bottom: 1px solid #78be1f;
+    border-radius: 0;
+    color: #333;
+}
+
+
+#notificationMessages {
+    margin-top: 20px;
+    background-color: #78be1f;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#notificationMessages ul {
+    list-style: none;
+    padding: 0;
+}
+
+#notificationMessages li {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
