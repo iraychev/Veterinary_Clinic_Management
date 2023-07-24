@@ -95,7 +95,7 @@ fetch('/patients/1')
         console.error('Error fetching patient data:', error);
     });
 
-// Fetch and populate the list of doctors in the "Select Doctor" dropdown
+
 fetch('/doctors')
     .then(response => response.json())
     .then(doctors => {
