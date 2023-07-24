@@ -1,9 +1,10 @@
 
 function formatDateForServer(dateString, timeString) {
-    const [year, month, day] = dateString.split('-'); 
-    const [hours, minutes] = timeString.split(':'); 
+    const [year, month, day] = dateString.split('-');
+    const [hours, minutes] = timeString.split(':');
     return `${year}-${month}-${day}T${hours}:${minutes}:00`;
 }
+let notifications = [];
 let ownerCounter = 1;
 function bookAppointment() {
     const appointmentDate = document.getElementById('appointment_date').value;
@@ -31,7 +32,6 @@ function bookAppointment() {
         remarks: remarks
     };
 
-   
     fetch('/appointments', {
         method: 'POST',
         headers: {
@@ -43,6 +43,13 @@ function bookAppointment() {
             if (response.ok) {
                 alert('Appointment booked successfully!');
                 console.log(appointmentData);
+                const notificationMessage = `New appointment booked for ${appointmentDate} at ${appointmentTime}. Doctor: ${doctorSelect.options[doctorSelect.selectedIndex].text}.`;
+
+
+                notifications.push(notificationMessage);
+
+
+                updateNotificationsTab();
 
             } else {
                 response.json().then(data => {
@@ -53,13 +60,26 @@ function bookAppointment() {
             }
         })
         .catch(error => {
-          
             console.error('Error:', error);
             alert('An error occurred while booking the appointment. Please try again.');
             console.log(appointmentData);
         });
 
 
+}
+function updateNotificationsTab() {
+    const notificationMessagesDiv = document.getElementById('notificationMessages');
+
+    notificationMessagesDiv.innerHTML = '';
+    const notificationList = document.createElement('ul');
+
+    notifications.forEach(message => {
+        const listItem = document.createElement('li');
+        listItem.textContent = message;
+        notificationList.appendChild(listItem);
+    });
+
+    notificationMessagesDiv.appendChild(notificationList);
 }
 fetch('/patients/1')
     .then(response => response.json())
@@ -75,7 +95,7 @@ fetch('/patients/1')
         console.error('Error fetching patient data:', error);
     });
 
-
+// Fetch and populate the list of doctors in the "Select Doctor" dropdown
 fetch('/doctors')
     .then(response => response.json())
     .then(doctors => {
