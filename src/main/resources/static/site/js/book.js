@@ -1,7 +1,7 @@
 
 function formatDateForServer(dateString, timeString) {
-    const [year, month, day] = dateString.split('-'); // Assuming the date is in "yyyy-MM-dd" format
-    const [hours, minutes] = timeString.split(':'); // Assuming the time is in "HH:mm" format
+    const [year, month, day] = dateString.split('-'); 
+    const [hours, minutes] = timeString.split(':'); 
     return `${year}-${month}-${day}T${hours}:${minutes}:00`;
 }
 let ownerCounter = 1;
@@ -13,7 +13,7 @@ function bookAppointment() {
     const remarks = document.getElementById('remarks').value;
     const durationMinutes = "60"; // Default duration time set to 1 hour
 
-    // Combine the date and time inputs into a single appointmentDateTime field
+
     const appointmentDateTime = formatDateForServer(appointmentDate, appointmentTime);
 
 
@@ -31,7 +31,7 @@ function bookAppointment() {
         remarks: remarks
     };
 
-    // Send the appointmentData to the backend for saving the appointment
+   
     fetch('/appointments', {
         method: 'POST',
         headers: {
@@ -53,7 +53,7 @@ function bookAppointment() {
             }
         })
         .catch(error => {
-            // Handle any errors that occurred during the request
+          
             console.error('Error:', error);
             alert('An error occurred while booking the appointment. Please try again.');
             console.log(appointmentData);
@@ -75,7 +75,7 @@ fetch('/patients/1')
         console.error('Error fetching patient data:', error);
     });
 
-// Fetch and populate the list of doctors in the "Select Doctor" dropdown
+
 fetch('/doctors')
     .then(response => response.json())
     .then(doctors => {
